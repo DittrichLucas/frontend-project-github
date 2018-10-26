@@ -1,7 +1,7 @@
 const path = require('path')
 
 module.exports = {
-    entry: "./app/App.js",
+    entry: "./app/App.jsx",
     output: {
       filename: "bundle.js",
       path: path.resolve(__dirname, 'public')
@@ -11,10 +11,13 @@ module.exports = {
         compress: true,
         port: 3000
     },
+    resolve: {
+      extensions: ['.jsx', '.js']
+    },
     module: {
       rules: [
         {
-          test: /\.js$/,
+          test: /\.jsx$/,
           exclude: /node_modules/,
           use:{
             loader: 'babel-loader',
