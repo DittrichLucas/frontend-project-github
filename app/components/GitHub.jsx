@@ -1,26 +1,28 @@
-import React from 'react'
+import SearchUser from './SearchUser'
 
-const GitHub = () =>
-    <div className='container'>
-        <div className='jumbotron'>
-            <h1>GitHub Info</h1>
-            <div className='row'>
-                <form>
-                    <div className='form-group'>
-                    <label>Username</label>
-                    <input 
-                        type='text'
-                        className='form-control'
-                        placeholder='Ex.: DittrichLucas'
-                    />
-                    </div>
-                    <button 
-                        type='submit'
-                        className='btn btn-primary'>Buscar
-                    </button>
-                </form>
-            </div>
-        </div>
-    </div>
+const GitHub = 
+() => {
+    return {
+        user: null,
+        repos: [],
+    }
+}
+
+(user) => {
+    this.setState({ user: user })
+}
+
+(repos) => {
+    this.setState({ repos: repos })
+}
+
+() => {
+<div className='container'>
+    <SearchUser 
+        updateUSer={this.updateUSer}
+        updateRepos={this.updateRepos}
+    />
+</div>
+}
 
 export default GitHub
