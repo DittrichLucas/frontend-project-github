@@ -1,6 +1,6 @@
 import SearchUser from './SearchUser'
 import React from 'react'
-import Repo from './Repo'
+import UserProfile from './UserProfile';
 
 class GitHub extends React.Component {
     constructor(props) {
@@ -11,7 +11,7 @@ class GitHub extends React.Component {
         }
     }
 
-    updateUSer(user) {
+    updateUser(user) {
         this.setState({ user })
     }
 
@@ -24,17 +24,13 @@ class GitHub extends React.Component {
         return (
             <div className='container'>
                 <SearchUser
-                    updateUSer={ this.updateUSer.bind(this) }
+                    updateUser={ this.updateUser.bind(this) }
                     updateRepos={ this.updateRepos.bind(this) }
                 />
-                {
-                    this.state.repos.map((repo, index) =>
-                        <Repo
-                            key={ index }
-                            avatarUrl={ repo.owner.avatar_url }
-                        />
-                    )
-                }
+                <UserProfile
+                    user={ this.state.user }
+                    repos={ this.state.repos }
+                />
             </div>
         )
     }
